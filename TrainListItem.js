@@ -10,8 +10,10 @@ class TrainListItem extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
+            duration: props.duration,
             eta: props.eta,
             etd: props.etd,
+            express: props.express,
             id: props.id
         };
     }
@@ -24,8 +26,14 @@ class TrainListItem extends React.PureComponent {
         return (
             <View style={styles.row}>
                 <Text style={styles.item}>Train {this.state.id}</Text>
-                <Text style={styles.item}>Departure: {this.formatTime(this.state.etd)}</Text>
-                <Text style={styles.item}>Arrival: {this.formatTime(this.state.eta)}</Text>
+                <View>
+                    <Text style={styles.item}>Departs {this.state.etd.format('hh:mma')}</Text>
+                    <Text style={styles.item}>{this.state.etd.fromNow()}</Text>
+                </View>
+                <View>
+                    <Text style={styles.item}>Arrives {this.state.eta.format('hh:mma')}</Text>
+                    <Text style={styles.item}>total of {this.state.duration} min</Text>
+                </View>
             </View>
         )
     }

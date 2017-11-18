@@ -18,6 +18,8 @@ class TrainList extends React.PureComponent {
             id={item.id}
             etd={item.etd}
             eta={item.eta}
+            duration={item.duration}
+            express={item.express}
         />
     );
 
