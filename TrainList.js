@@ -13,7 +13,7 @@ class TrainList extends React.PureComponent {
         };
     }
 
-    _renderItem = ({ item }) => (
+    renderItem = ({ item }) => (
         <TrainListItem
             id={item.id}
             etd={item.etd}
@@ -23,15 +23,15 @@ class TrainList extends React.PureComponent {
         />
     );
 
-    _keyExtractor = (item, index) => item.id;
+    keyExtractor = (item, index) => item.id;
 
     render() {
         return (
             <View>
                 <FlatList
                     data={this.state.data}
-                    renderItem={this._renderItem}
-                    keyExtractor={this._keyExtractor}
+                    renderItem={this.renderItem}
+                    keyExtractor={this.keyExtractor}
                 />
             </View>
         );
