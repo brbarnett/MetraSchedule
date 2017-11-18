@@ -23,9 +23,9 @@ class TrainListItem extends React.PureComponent {
     render() {
         return (
             <View style={styles.row}>
-                <Text>Train {this.state.id}</Text>
-                <Text>Departure: {this.formatTime(this.state.etd)}</Text>
-                <Text>Arrival: {this.formatTime(this.state.eta)}</Text>
+                <Text style={styles.item}>Train {this.state.id}</Text>
+                <Text style={styles.item}>Departure: {this.formatTime(this.state.etd)}</Text>
+                <Text style={styles.item}>Arrival: {this.formatTime(this.state.eta)}</Text>
             </View>
         )
     }
@@ -40,6 +40,9 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         padding: 20,
         justifyContent: 'space-between'
+    },
+    item: {
+        fontSize: 11
     }
 });
 
