@@ -31,7 +31,6 @@ class TrainList extends React.PureComponent {
                     renderItem={this._renderItem}
                 />
             </View>
-
         );
     }
 }

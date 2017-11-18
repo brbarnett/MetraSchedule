@@ -3,6 +3,7 @@ import {
   Platform,
   StyleSheet,
   Text,
+  ToolbarAndroid,
   View,
   ViewPagerAndroid
 } from 'react-native';
@@ -18,16 +19,19 @@ export default class App extends Component {
 
   render() {
     return (
-      <ViewPagerAndroid
-        style={styles.viewPager}
-        initialPage={0}>
-        <View style={styles.pageStyle}>
-          <TrainList data={this.scheduleService.getFutureTrains('westbound')} />
-        </View>
-        <View style={styles.pageStyle}>
-          <TrainList data={this.scheduleService.getFutureTrains('eastbound')} />
-        </View>
-      </ViewPagerAndroid>
+      <View style={styles.container}>
+        <ToolbarAndroid style={{height: 50, backgroundColor: '#0052a7'}} title="Metra Schedule" titleColor="white" />
+        <ViewPagerAndroid
+          style={styles.viewPager}
+          initialPage={0}>
+          <View style={styles.pageStyle}>
+            <TrainList data={this.scheduleService.getFutureTrains('westbound')} />
+          </View>
+          <View style={styles.pageStyle}>
+            <TrainList data={this.scheduleService.getFutureTrains('eastbound')} />
+          </View>
+        </ViewPagerAndroid>
+      </View>
     );
   }
 }
