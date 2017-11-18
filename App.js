@@ -25,7 +25,7 @@ export default class App extends Component {
           <TrainList data={data.westbound} />
         </View>
         <View style={styles.pageStyle}>
-          <Text>Second page</Text>
+        <TrainList data={data.eastbound} />
         </View>
       </ViewPagerAndroid>
     );
@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
     flex: 1
   },
   pageStyle: {
-    alignItems: 'center',
-    padding: 20,
+    flex: 1,
+    justifyContent: 'flex-start'
   },
   viewPager: {
     flex: 1

@@ -14,13 +14,12 @@ class TrainList extends React.PureComponent {
     }
 
     _renderItem = ({ item }) => (
-        <View style={{ flex: 1, flexDirection: 'row' }}>
-            <TrainListItem
-                id={item.id}
-                etd={item.etd}
-                eta={item.eta}
-            />
-        </View>
+        <TrainListItem
+        id={item.id}
+        etd={item.etd}
+        eta={item.eta}
+    />
+        
 
     );
 

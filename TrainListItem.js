@@ -17,7 +17,7 @@ class TrainListItem extends React.PureComponent {
     }
 
     formatTime(time) {
-        return moment(time, 'hh:mm A').format('hh:mm a');
+        return moment(time, 'hh:mm A').fromNow();   // consider .format('hh:mm a')
     }
 
     render() {
@@ -33,8 +33,13 @@ class TrainListItem extends React.PureComponent {
 
 const styles = StyleSheet.create({
     row: {
-        borderWidth: 1,
-        borderColor: 'black'
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderColor: '#D7D7D7',
+        borderBottomWidth: 1,
+        padding: 20,
+        justifyContent: 'space-between'
     }
 });
 
