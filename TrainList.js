@@ -23,12 +23,15 @@ class TrainList extends React.PureComponent {
         />
     );
 
+    _keyExtractor = (item, index) => item.id;
+
     render() {
         return (
             <View>
                 <FlatList
                     data={this.state.data}
                     renderItem={this._renderItem}
+                    keyExtractor={this._keyExtractor}
                 />
             </View>
         );
