@@ -6,14 +6,14 @@ import {
   View,
   ViewPagerAndroid
 } from 'react-native';
-
-import data from './data.json';
 import { TrainList } from './TrainList';
+import {ScheduleService} from './ScheduleService';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.scheduleService = new ScheduleService();
   }
 
   render() {
@@ -22,10 +22,10 @@ export default class App extends Component {
         style={styles.viewPager}
         initialPage={0}>
         <View style={styles.pageStyle}>
-          <TrainList data={data.westbound} />
+          <TrainList data={this.scheduleService.getFutureTrains('westbound')} />
         </View>
         <View style={styles.pageStyle}>
-        <TrainList data={data.eastbound} />
+        <TrainList data={this.scheduleService.getFutureTrains('eastbound')} />
         </View>
       </ViewPagerAndroid>
     );
