@@ -15,12 +15,10 @@ class TrainList extends React.PureComponent {
 
     _renderItem = ({ item }) => (
         <TrainListItem
-        id={item.id}
-        etd={item.etd}
-        eta={item.eta}
-    />
-        
-
+            id={item.id}
+            etd={item.etd}
+            eta={item.eta}
+        />
     );
 
     render() {
