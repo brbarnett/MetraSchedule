@@ -7,7 +7,7 @@ import {
   ViewPagerAndroid
 } from 'react-native';
 import { TrainList } from './TrainList';
-import {ScheduleService} from './ScheduleService';
+import { ScheduleService } from './ScheduleService';
 
 export default class App extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ export default class App extends Component {
           <TrainList data={this.scheduleService.getFutureTrains('westbound')} />
         </View>
         <View style={styles.pageStyle}>
-        <TrainList data={this.scheduleService.getFutureTrains('eastbound')} />
+          <TrainList data={this.scheduleService.getFutureTrains('eastbound')} />
         </View>
       </ViewPagerAndroid>
     );
