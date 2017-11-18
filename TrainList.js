@@ -35,15 +35,10 @@ class TrainList extends React.PureComponent {
     keyExtractor = (item, index) => item.id;
 
     updateData() {
-        this.setState({ data: this.scheduleService.getFutureTrains(this.state.direction) });
-    }
-
-    onRefresh() {
-        this.setState({refreshing: true});
-
-        this.updateData();
-
-        this.setState({refreshing: false});
+        this.setState({ refreshing: false });
+        this.scheduleService.getFutureTrains(this.state.direction)
+            .then(trains => this.setState({ data: trains }))
+            .finally(() => this.setState({ refreshing: false }));
     }
 
     render() {
@@ -53,7 +48,7 @@ class TrainList extends React.PureComponent {
                     data={this.state.data}
                     renderItem={this.renderItem}
                     keyExtractor={this.keyExtractor}
-                    onRefresh={this.onRefresh.bind(this)}
+                    onRefresh={this.updateData.bind(this)}
                     refreshing={this.state.refreshing}
                 />
             </View>
