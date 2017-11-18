@@ -25,10 +25,13 @@ class TrainList extends React.PureComponent {
 
     render() {
         return (
-            <FlatList
-                data={this.state.data}
-                renderItem={this._renderItem}
-            />
+            <View>
+                <FlatList
+                    data={this.state.data}
+                    renderItem={this._renderItem}
+                />
+            </View>
+
         );
     }
 }
