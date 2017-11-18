@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {
     FlatList,
+    Text,
     View
 } from 'react-native';
 import { TrainListItem } from './TrainListItem';
@@ -12,7 +13,8 @@ class TrainList extends React.PureComponent {
         this.state = {
             data: [],
             direction: props.direction,
-            refreshing: false
+            refreshing: false,
+            title: props.title
         };
 
         this.scheduleService = props.scheduleService;
@@ -44,6 +46,11 @@ class TrainList extends React.PureComponent {
     render() {
         return (
             <View>
+                <Text style={{
+                    backgroundColor: '#D7D7D7',
+                    padding: 5,
+                    paddingLeft: 20
+                }}>{this.state.title}</Text>
                 <FlatList
                     data={this.state.data}
                     renderItem={this.renderItem}
