@@ -7,6 +7,7 @@ import {
   ViewPagerAndroid
 } from 'react-native';
 
+import data from './data.json';
 import { TrainList } from './TrainList';
 
 export default class App extends Component {
@@ -21,7 +22,7 @@ export default class App extends Component {
         style={styles.viewPager}
         initialPage={0}>
         <View style={styles.pageStyle}>
-          <TrainList />
+          <TrainList data={data.westbound} />
         </View>
         <View style={styles.pageStyle}>
           <Text>Second page</Text>

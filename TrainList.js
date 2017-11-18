@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
 import {
-    FlatList
-  } from 'react-native';
+    FlatList,
+    View
+} from 'react-native';
 import { TrainListItem } from './TrainListItem';
 
 class TrainList extends React.PureComponent {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            data: ['train 1', 'train 2']
+            data: props.data
         };
     }
 
     _renderItem = ({ item }) => (
-        <TrainListItem
-            title={'Train'}
-        />
+        <View style={{ flex: 1, flexDirection: 'row' }}>
+            <TrainListItem
+                id={item.id}
+                etd={item.etd}
+                eta={item.eta}
+            />
+        </View>
+
     );
 
     render() {
