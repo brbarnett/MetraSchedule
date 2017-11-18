@@ -24,7 +24,7 @@ class TrainListItem extends React.PureComponent {
 
     render() {
         return (
-            <View style={styles.row}>
+            <View style={[styles.row, this.state.express && styles.express]}>
                 <Text style={styles.item}>Train {this.state.id}</Text>
                 <View>
                     <Text style={styles.item}>Departs {this.state.etd.format('hh:mma')}</Text>
@@ -48,6 +48,10 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         padding: 20,
         justifyContent: 'space-between'
+    },
+    express: {
+        borderLeftWidth: 3, 
+        borderLeftColor: '#ff7001'
     },
     item: {
         fontSize: 11
