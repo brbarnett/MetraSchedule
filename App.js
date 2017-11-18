@@ -25,10 +25,10 @@ export default class App extends Component {
           style={styles.viewPager}
           initialPage={0}>
           <View style={styles.pageStyle}>
-            <TrainList data={this.scheduleService.getFutureTrains('westbound')} />
+            <TrainList direction="westbound" scheduleService={this.scheduleService} />
           </View>
           <View style={styles.pageStyle}>
-            <TrainList data={this.scheduleService.getFutureTrains('eastbound')} />
+            <TrainList direction="eastbound" scheduleService={this.scheduleService} />
           </View>
         </ViewPagerAndroid>
       </View>

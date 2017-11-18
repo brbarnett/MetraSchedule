@@ -8,9 +8,18 @@ import { TrainListItem } from './TrainListItem';
 class TrainList extends React.PureComponent {
     constructor(props) {
         super(props);
+
         this.state = {
-            data: props.data
+            data: [],
+            direction: props.direction,
+            refreshing: false
         };
+
+        this.scheduleService = props.scheduleService;
+    }
+
+    componentDidMount() {
+        this.updateData();
     }
 
     renderItem = ({ item }) => (
@@ -25,6 +34,18 @@ class TrainList extends React.PureComponent {
 
     keyExtractor = (item, index) => item.id;
 
+    updateData() {
+        this.setState({ data: this.scheduleService.getFutureTrains(this.state.direction) });
+    }
+
+    onRefresh() {
+        this.setState({refreshing: true});
+
+        this.updateData();
+
+        this.setState({refreshing: false});
+    }
+
     render() {
         return (
             <View>
@@ -32,6 +53,8 @@ class TrainList extends React.PureComponent {
                     data={this.state.data}
                     renderItem={this.renderItem}
                     keyExtractor={this.keyExtractor}
+                    onRefresh={this.onRefresh.bind(this)}
+                    refreshing={this.state.refreshing}
                 />
             </View>
         );
